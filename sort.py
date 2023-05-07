@@ -5,6 +5,14 @@ import re
 import sys
 
 
+expansion = {
+    "images": [".JPEG", ".PNG", ".JPG", ".SVG"],
+    "video": [".AVI", ".MP4", ".MOV", ".MKV"],
+    "documents": [".DOC", ".DOCX", ".TXT", ".PDF", ".XLSX", ".PPTX"],
+    "audio": [".MP3", ".OGG", ".WAV", ".AMR"],
+    "archives": [".ZIP", ".GZ", ".TAR"]
+}
+
 spisok = []
 
 p = Path(sys.argv[1])
