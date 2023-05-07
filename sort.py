@@ -40,7 +40,7 @@ def add_to_folder(spisok):
 
         suf = file.suffix.upper()
 
-        if suf == ".JPEG" or suf == ".PNG" or suf == ".JPG" or suf == ".SVG":
+        if suf in expansion.get("images"):
             images = p / "images"
             if images.exists():
                 os.rename(file, images / new_name)
@@ -48,7 +48,7 @@ def add_to_folder(spisok):
                 os.mkdir(images)
                 os.rename(file, images / new_name)
 
-        elif suf == ".AVI" or suf == ".MP4" or suf == ".MOV" or suf == ".MKV":
+        elif suf in expansion.get("video"):
             video = p / "video"
             if video.exists():
                 os.rename(file, video / new_name)
@@ -56,7 +56,7 @@ def add_to_folder(spisok):
                 os.mkdir(video)
                 os.rename(file, video / new_name)
 
-        elif suf == ".DOC" or suf == ".DOCX" or suf == ".TXT" or suf == ".PDF" or suf == ".XLSX" or suf == ".PPTX":
+        elif suf in expansion.get("documents"):
             doc = p / "documents"
             if doc.exists():
                 os.rename(file, doc / new_name)
@@ -64,7 +64,7 @@ def add_to_folder(spisok):
                 os.mkdir(doc)
                 os.rename(file, doc / new_name)
 
-        elif suf == ".MP3" or suf == ".OGG" or suf == ".WAV" or suf == ".AMR":
+        elif suf in expansion.get("audio"):
             audio = p / "audio"
             if audio.exists():
                 os.rename(file, audio / new_name)
@@ -72,7 +72,7 @@ def add_to_folder(spisok):
                 os.mkdir(audio)
                 os.rename(file, audio / new_name)
 
-        elif suf == ".ZIP" or suf == ".GZ" or suf == ".TAR":
+        elif suf in expansion.get("archives"):
             arch = p / "archives"
             if arch.exists():
                 shutil.unpack_archive(
